@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="input">
+        <form action="/" method="post">
+          <h1 >Input</h1>
+          <div class="mb-3">
+            <label class="form-label" for="algorithm">Algorithm</label>
+            <select class="form-select"  id="selectOption" name="option"  onclick="select(event)" data-c="" >
+              <option value="1">First Come First Serve</option>
+              <option value="2">Shortest Job First (non-preemptive)</option>
+              <option value="3">Shortest Remaining Time</option>
+              <option value="4">Round-Robin </option>
+              <option value="5">Priority (non-preemptive)</option>
+              <option value="6">Priority (preemptive)</option>
+            </select>
+           
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="">Arrival Times</label>
+            <input class="form-control" type="text" name="arrivalTimes" id="" value="" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="">Burst Times</label>
+            <input class="form-control" type="text"  name="burstTimes" id="" value="" />
+          </div>
+          <div class="mb-3 " id="quantum">
+            <label  class="form-label" for="">Quantum Time</label>
+            <input class="form-control" type="text" name="quantum" id="" />
+          </div>
+          <div class="mb-3 " id="priorities">
+            <label  class="form-label" for="">Priorities</label>
+            <input class="form-control" type="text" name="priorities" id="" />
+          </div>
+          <button class="btn btn-primary" type="submit">Solve</button>
+        </form>
+      </div>
+      <div class="output">
+        <h1>Output </h1>
+        <div class="chart">
+
+          <div class="items">
+
+             <div class="chart-item1">
+             
+            </div>
+            <% for( let i = 0; i < ganttChart.length; i++ ) { %>
+            <div class="chart-item">
+              p<%= ganttChart[i].name %>
+            </div>
+            <% } %>
+          </div>
+
+          <div class="times">
+            <% if (ganttChart.length > 0) { %>
+             <div class="time">
+              <%= ganttChart[0].startTime %>
+            </div>
+            <% for( let i = 0; i < ganttChart.length; i++ ) { %>
+            <div class="time">
+              <%= ganttChart[i].finishTime %>
+            </div>
+            <% } %>
+            <% } %>
+            
+            
+            
+
+          </div>
+        </div>
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Process</th>
+              <th>Priority</th>
+              <th>Arrival Time</th>
+              <th>Burst Time</th>
+              <th>Completion Time</th>
+              <th>Turnaround Time</th>
+              <th>Waiting Time</th>
+              <th>Response Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for( let i = 0; i < processes.length; i++ ) { %>
+              <tr>
+              <th>p<%= processes[i].name  %></th>
+              <td><%= processes[i].priority %></td>
+              <td><%= processes[i].arrivalTime %></td>
+              <td><%= processes[i].burstTime %></td>
+              <td><%= processes[i].completionTime %></td>
+              <td><%= processes[i].turnaroundTime %></td>
+              <td><%= processes[i].waitingTime %></td>
+              <td><%= processes[i].responseTime %></td>
+            </tr>
+            <% } %>
+            
+          </tbody>
+          <tfoot><tr>
+            <% if (averages.length > 0) { %>
+              <td colspan="5"></td>
+              <td >Average: <%= averages[0].avgTurnaround %></td>
+              <td >Average: <%= averages[0].avgWaiting %></td>
+              <td >Average: <%= averages[0].avgResponse %></td>
+             
+            <% } %>
+          </tr></tfoot>
+        </table>
+        <div class="chart">
+
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

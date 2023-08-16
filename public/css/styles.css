@@ -1,0 +1,34 @@
+.wrapper{
+    padding: 3%;
+}
+.chart{
+    
+    width: fit-content;
+}
+.items{
+    display: flex;
+    justify-content: space-between;
+}
+.items:first-of-type(1){
+    display: none;
+}
+.chart-item1{
+    padding: 10px;
+    
+}
+.chart-item{
+    padding: 10px;
+    border: 1px solid black;
+}
+.times{
+    display: flex;
+    justify-content:space-between;
+
+}
+.time{
+    min-width: 30px;
+    text-align: right;
+}
+#quantum, #priorities{
+    display: none;
+}
